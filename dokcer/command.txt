@@ -1,0 +1,5 @@
+# Docker build
+docker build -t juhyung1021/deeplearning .
+
+# Docker run
+docker run -it --gpus all --name deeplearning -p 18083:8080 -d juhyung1021/deeplearning
