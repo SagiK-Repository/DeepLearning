@@ -16,6 +16,11 @@ nvidia-docker run -it -p 18081:8080 -d juhyung1021/nvidia_cuda_cpp_vscode_docker
 
 <br>
 
+### 과정
+- [ ] DeepLearning 구현을 위한 docker 환경 구현 (https://github.com/SagiK-Repository/DeepLearning/issues/1)
+
+<br>
+
 ### 제작자
 [@SAgiKPJH](https://github.com/SAgiKPJH)
 
