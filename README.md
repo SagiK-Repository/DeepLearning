@@ -1,0 +1,26 @@
+문서정보 : 2024.01.07.~ 작성, 작성자 [@SAgiKPJH](https://github.com/SAgiKPJH)
+
+# DeepLearning
+DeepLearning 구현
+
+<br>
+
+### 바로 사용하기
+```bash
+docker run -it --gpus all -p 18081:8080 -d juhyung1021/nvidia_cuda_cpp_vscode_docker_gpupu_programming:12.2.0
+
+# or
+
+nvidia-docker run -it -p 18081:8080 -d juhyung1021/nvidia_cuda_cpp_vscode_docker_gpupu_programming:12.2.0
+```
+
+<br>
+
+### 제작자
+[@SAgiKPJH](https://github.com/SAgiKPJH)
+
+<br>
+
+---
+
+<br>
