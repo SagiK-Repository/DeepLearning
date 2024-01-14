@@ -1,3 +1,7 @@
+//     set     :      cd '/workspace/인공뉴런/csv data'
+//   build     :      g++ ./read_csv_data.cpp -o read_csv_data_cpp
+//     run     :      ./read_csv_data_cpp
+
 #include <iostream>
 #include <fstream>
 #include <string>
