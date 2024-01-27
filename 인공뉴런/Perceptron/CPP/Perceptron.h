@@ -16,12 +16,12 @@ public:
 };
 
 // Perceptron
-class Perceptron_Vector : public IPerceptron {
+class Perceptron_Vector : public IPerceptron_Vector {
 private :
     int eta;
     int epoch;
     int random_state;
-    std::vector<float> bias;
+    float bias;
     std::vector<float> weight;
     IRandomeVector* randomVectorPtr;
 
@@ -33,8 +33,8 @@ public :
     }
 
     void Initialize(std::vector<std::vector<float>> input_data) override {
-        bias(epoch, 0.0f);
-        randomVectorPtr.size = input_data[0].size(); // 행 input_data.size(), 열 input_data[0].size()
+        bias = 0.0f;
+        randomVectorPtr->size = input_data[0].size(); // 행 input_data.size(), 열 input_data[0].size()
         weight = randomVectorPtr->getData();
     }
 
@@ -55,7 +55,7 @@ public :
     }
 
     int Predict(std::vector<float> input_data) override {
-        result (Caculator_Perceptron(input_data) >= 0.0f)? 1 : 0;
+        return (Caculator_Perceptron(input_data) >= 0.0f)? 1 : 0;
     }
 
     float Caculator_Perceptron(std::vector<float> input_data) {
@@ -64,14 +64,14 @@ public :
 
     float Multiplex_Array(std::vector<float> input_data) {
         float result = 0.0f;
-        for (int i = 0; i < input_data[0].size(); i++)
+        for (int i = 0; i < input_data.size(); i++)
             result += input_data[i] * weight[i];
         return result;
     }
 };
 
 template <int N, int Epoch, int Length>
-class Perceptron_Array : public IPerceptron<N> {
+class Perceptron_Array : public IPerceptron_Array<N, Epoch, Length> {
 private :
     int eta;
     int random_state;
@@ -109,7 +109,7 @@ public :
     }
 
     int Predict(std::array<float, Length> input_data) {
-        result (Caculator_Perceptron(input_data) >= 0.0f)? 1 : 0;
+        return (Caculator_Perceptron(input_data) >= 0.0f)? 1 : 0;
     }
 
     float Caculator_Perceptron(std::array<float, Length> input_data) {
