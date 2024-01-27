@@ -9,6 +9,7 @@
 // Interface
 class IRandomeVector {
 public:
+    int size;
     virtual std::vector<float> getData() = 0;
 };
 
@@ -23,12 +24,15 @@ class Normal_Distribution_Vector_Class : public IRandomeVector {
 private:
     int seed;
 public:
-    int size;
     float loc;
     float scale;
     
-    Normal_Distribution_Vector_Class(int size = 100, int seed = 1, float loc = 0.0, float scale = 0.01) : seed(seed), size(size), loc(loc), scale(scale) { }
-    Normal_Distribution_Vector_Class(int size = 100, float loc = 0.0, float scale = 0.01, int seed = 1) : seed(seed), size(size), loc(loc), scale(scale) { }
+    Normal_Distribution_Vector_Class(int size = 100, int seed = 1, float loc = 0.0, float scale = 0.01) : seed(seed), loc(loc), scale(scale) {
+        this->size = size;
+    }
+    Normal_Distribution_Vector_Class(int size = 100, float loc = 0.0, float scale = 0.01, int seed = 1) : seed(seed), loc(loc), scale(scale) {
+        this->size = size;    
+    }
 
     std::vector<float> getData() override {
         std::vector<float> result;
@@ -50,12 +54,15 @@ class Uniform_Distribution_Vector_Class : public IRandomeVector {
 private:
     int seed;
 public:
-    int size;
     float min = 0.0;
     float max = 0.1;
     
-    Uniform_Distribution_Vector_Class(int size = 100, float min = 0.0, float max = 1.0, int seed = 1) : seed(seed), size(size), min(min), max(max) { }
-    Uniform_Distribution_Vector_Class(int size = 100, int seed = 1, float min = 0.0, float max = 1.0) : seed(seed), size(size), min(min), max(max) { }
+    Uniform_Distribution_Vector_Class(int size = 100, float min = 0.0, float max = 1.0, int seed = 1) : seed(seed), min(min), max(max) {
+        this->size = size;
+     }
+    Uniform_Distribution_Vector_Class(int size = 100, int seed = 1, float min = 0.0, float max = 1.0) : seed(seed), min(min), max(max) {
+        this->size = size;
+     }
 
     std::vector<float> getData() override {
         std::vector<float> result;
