@@ -28,8 +28,8 @@ public class Perceptron_Test
         perceptron.Predict(new List<float> { 6.0f, 2.0f }).Should().Be(0);
         perceptron.Predict(new List<float> { 7.0f, 1.0f }).Should().Be(0);
         perceptron.Predict(new List<float> { 7.0f, 2.0f }).Should().Be(0);
-        perceptron.Predict(new List<float> { 7.0f, 7.0f }).Should().Be(1);
         perceptron.Predict(new List<float> { 7.0f, 6.0f }).Should().Be(1);
+        perceptron.Predict(new List<float> { 7.0f, 7.0f }).Should().Be(1);
         perceptron.Predict(new List<float> { 5.0f, 4.0f }).Should().Be(1);
     }
-}
+} 
