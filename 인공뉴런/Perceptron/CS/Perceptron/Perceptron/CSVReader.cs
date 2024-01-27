@@ -17,4 +17,24 @@ public static class CSVReader
 
         return dataArray.ToArray();
     }
+
+    public static string[,] Array2DLoad(string filePath)
+    {
+        string[][] dataArray = Load(filePath);
+
+        int numRows = dataArray.Length;
+        int numCols = dataArray[0].Length;
+
+        string[,] data2DArray = new string[numRows, numCols];
+
+        for (int i = 0; i < numRows; i++)
+        {
+            for (int j = 0; j < numCols; j++)
+            {
+                data2DArray[i, j] = dataArray[i][j];
+            }
+        }
+
+        return data2DArray;
+    }
 }
