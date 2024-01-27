@@ -26,22 +26,14 @@ TEST_CASE("Perceptron_Vector", "[Perceptron_Vector]") {
     REQUIRE(perceptronvector->Predict(myVector) == 0);
     myVector = { 5.0, 2 };
     REQUIRE(perceptronvector->Predict(myVector) == 0);
-    myVector = { 6.0, 3 };
+    myVector = { 6.0, 2 };
     REQUIRE(perceptronvector->Predict(myVector) == 0);
-    myVector = { 7.0, 4 };
+    myVector = { 7.0, 2 };
     REQUIRE(perceptronvector->Predict(myVector) == 0);
     myVector = { 7.0, 5 };
-    REQUIRE(perceptronvector->Predict(myVector) == 0);
+    REQUIRE(perceptronvector->Predict(myVector) == 1);
     myVector = { 7.0, 6 };
-    REQUIRE(perceptronvector->Predict(myVector) == 0);
+    REQUIRE(perceptronvector->Predict(myVector) == 1);
     myVector = { 5.0, 4 };
-    REQUIRE(perceptronvector->Predict(myVector) == 0);
+    REQUIRE(perceptronvector->Predict(myVector) == 1);
 }
-
-// print(ppn.predict([4.5, 1])) 0
-// print(ppn.predict([5.0, 2])) 0
-// print(ppn.predict([6.0, 3])) 0
-// print(ppn.predict([7.0, 4])) 0
-// print(ppn.predict([7.0, 5])) 1
-// print(ppn.predict([7.0, 6])) 1
-// print(ppn.predict([5.0, 4])) 1
