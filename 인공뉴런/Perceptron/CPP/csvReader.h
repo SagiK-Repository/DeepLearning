@@ -41,6 +41,7 @@ std::vector<std::vector<float>> processCSV_vector(const std::string& filename, i
         return {};
 
     std::vector<std::vector<float>> matrix = get_vector(filename, first_column, second_column);
+    matrix.erase(matrix.begin()); // 첫 번 데이터 제외
 
     file.close();
 
@@ -79,7 +80,6 @@ std::vector<float> get_row_vector(std::istringstream& iss, int first_column, int
     return row;
 }
 
-// CSV ������ �о �����͸� ó���ϴ� �Լ�
 template <int N>
 std::array<std::array<float, 2>, N> processCSV_array(const std::string& filename, int first_column, int second_column) {
     std::array<std::array<float, 2>, N> result{};
@@ -91,6 +91,7 @@ std::array<std::array<float, 2>, N> processCSV_array(const std::string& filename
     std::string line;
     int row_index = 0;
     
+    std::getline(file, line);
     while (std::getline(file, line)) {
         std::istringstream iss(line);
         std::string token;
