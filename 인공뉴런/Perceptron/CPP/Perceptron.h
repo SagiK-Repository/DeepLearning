@@ -34,7 +34,6 @@ public :
 
     void Initialize(std::vector<std::vector<float>> input_data) override {
         bias = 0.0f;
-        randomVectorPtr->size = input_data[0].size(); // input_data.size(), input_data[0].size()
         weight = randomVectorPtr->getData();
     }
 
@@ -44,7 +43,7 @@ public :
             int error = 0;
             for(int i = 0; i < input_data.size(); i++) {
                 float delta = eta * (result_data[i] - Predict(input_data[i]));
-                for(int l = 0; l < input_data[0].size(); l++)
+                for(int l = 0; l < input_data[0].size(); l++)  // 세로 input_data.size(), 1개당 data 개수 input_data[0].size()
                     weight[l] += input_data[i][l] * delta;
                 bias += delta;
                 error += int(delta != 0.0);
@@ -77,18 +76,17 @@ private :
     int random_state;
     float bias;
     std::array<float, Length> weight;
-    IRandomeArray<N>* randomArrayPtr;
+    IRandomeArray<Length>* randomArrayPtr;
 
 public :
     std::array<int, Epoch> errors;
 
-    Perceptron_Array(IRandomeArray<N>* randomArrayPtr, float eta = 0.01, int random_state = 1)
+    Perceptron_Array(IRandomeArray<Length>* randomArrayPtr, float eta = 0.01, int random_state = 1)
      : eta(eta), random_state(random_state), randomArrayPtr(randomArrayPtr) {
     }
 
     void Initialize(std::array<std::array<float, Length>, N> input_data) {
         bias = 0.0f;
-        randomArrayPtr.size = Length;
         weight = randomArrayPtr->getData();
     }
     
