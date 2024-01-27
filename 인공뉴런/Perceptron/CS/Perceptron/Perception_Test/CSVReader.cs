@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using Xunit.Sdk;
 
@@ -36,8 +37,8 @@ public class CSVReader_Test
         File.Exists("test.csv").Should().BeTrue();
     }
 
-    [Fact]
     [TestCSVFile]
+    [Fact(DisplayName = "CSVReader.Load Test")]
     public void Load_Should_Return_Correct_CSV_Data()
     {
         // Act
@@ -47,5 +48,18 @@ public class CSVReader_Test
         result[0][0].Should().Be("John");
         result[1][1].Should().Be("Smith");
         result[0][2].Should().Be("john.doe@example.com");
+    }
+
+    [TestCSVFile]
+    [Fact(DisplayName = "CSVReader.Array2DLoad Test")]
+    public void Load_Should_Return_Correct_CSV_Data_2D_Array()
+    {
+        // Act
+        string[,] result = CSVReader.CSVReader.Array2DLoad("test.csv");
+
+        // Assert
+        result[0, 0].Should().Be("John");
+        result[1, 1].Should().Be("Smith");
+        result[0, 2].Should().Be("john.doe@example.com");
     }
 }
