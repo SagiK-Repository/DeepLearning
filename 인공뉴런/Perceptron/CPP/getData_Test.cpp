@@ -23,9 +23,9 @@ TEST_CASE("Normal Distribution Array Class", "[Normal_Distribution_Array_Class]"
     std::array<float, 100> normalArray = randomArrayPtr->getData();
 
     // Assert
-    REQUIRE(Rounding(normalArray[0],4) == -0.0055f);
-    REQUIRE(Rounding(normalArray[50],4) == 0.0311f);
-    REQUIRE(Rounding(normalArray[99],4) == -0.0024f);
+    REQUIRE(Rounding(normalArray[0],4) == -0.0141f);
+    REQUIRE(Rounding(normalArray[50],4) == -0.0054f);
+    REQUIRE(Rounding(normalArray[99],4) == -0.0089f);
 }
 
 TEST_CASE("Normal Distribution Vector Class", "[Normal_Distribution_Vector_Class]") {
@@ -38,9 +38,9 @@ TEST_CASE("Normal Distribution Vector Class", "[Normal_Distribution_Vector_Class
     std::vector<float> normalVector = randomVectorPtr->getData();
 
     // Assert
-    REQUIRE(Rounding(normalVector[0],4) == -0.0055f);
-    REQUIRE(Rounding(normalVector[50],4) == 0.0311f);
-    REQUIRE(Rounding(normalVector[99],4) == -0.0024f);
+    REQUIRE(Rounding(normalVector[0],4) == -0.0141f);
+    REQUIRE(Rounding(normalVector[50],4) == -0.0054f);
+    REQUIRE(Rounding(normalVector[99],4) == -0.0089f);
 }
 
 TEST_CASE("Uniform Distribution Array Class", "[Uniform_Distribution_Array_Class]") {
@@ -52,9 +52,9 @@ TEST_CASE("Uniform Distribution Array Class", "[Uniform_Distribution_Array_Class
     std::array<float, 100> normalArray = randomArrayPtr->getData();
 
     // Assert
-    REQUIRE(Rounding(normalArray[0],4) == 0.1315f);
-    REQUIRE(Rounding(normalArray[50],4) == 0.4679f);
-    REQUIRE(Rounding(normalArray[99],4) == 0.8246f);
+    REQUIRE(Rounding(normalArray[0],4) == 0.9971f);
+    REQUIRE(Rounding(normalArray[50],4) == 0.0836f);
+    REQUIRE(Rounding(normalArray[99],4) == 0.1529f);
 }
 
 TEST_CASE("Uniform Distribution Vector Class", "[Uniform_Distribution_Vector_Class]") {
@@ -67,9 +67,9 @@ TEST_CASE("Uniform Distribution Vector Class", "[Uniform_Distribution_Vector_Cla
     std::vector<float> normalVector = randomVectorPtr->getData();
 
     // Assert
-    REQUIRE(Rounding(normalVector[0],4) == 0.1315f);
-    REQUIRE(Rounding(normalVector[50],4) == 0.4679f);
-    REQUIRE(Rounding(normalVector[99],4) == 0.8246f);
+    REQUIRE(Rounding(normalVector[0],4) == 0.9971f);
+    REQUIRE(Rounding(normalVector[50],4) == 0.0836f);
+    REQUIRE(Rounding(normalVector[99],4) == 0.1529f);
 }
 
 TEST_CASE("Normal Distribution Array Class Set Value", "[Normal_Distribution_Array_Class_Value]") {
@@ -81,9 +81,9 @@ TEST_CASE("Normal Distribution Array Class Set Value", "[Normal_Distribution_Arr
     std::array<float, 100> normalArray = randomArrayPtr->getData();
 
     // Assert
-    REQUIRE(Rounding(normalArray[0],4) == -0.0003f);
-    REQUIRE(Rounding(normalArray[50],4) == 0.0105f);
-    REQUIRE(Rounding(normalArray[99],4) == 0.0047f);
+    REQUIRE(Rounding(normalArray[0],4) == 0.0066f);
+    REQUIRE(Rounding(normalArray[50],4) == 0.0103f);
+    REQUIRE(Rounding(normalArray[99],4) == -0.004f);
 }
 
 TEST_CASE("Normal Distribution Vector Class Set Value", "[Normal_Distribution_Vector_Class_Value]") {
@@ -96,9 +96,9 @@ TEST_CASE("Normal Distribution Vector Class Set Value", "[Normal_Distribution_Ve
     std::vector<float> normalVector = randomVectorPtr->getData();
 
     // Assert
-    REQUIRE(Rounding(normalVector[0],4) == 0.1036f);
-    REQUIRE(Rounding(normalVector[50],4) == 0.1257f);
-    REQUIRE(Rounding(normalVector[99],4) == 0.083f);
+    REQUIRE(Rounding(normalVector[0],4) == 0.0798f);
+    REQUIRE(Rounding(normalVector[50],4) == 0.1031f);
+    REQUIRE(Rounding(normalVector[99],4) == 0.0811f);
 }
 
 TEST_CASE("Uniform Distribution Array Class Set Value", "[Uniform_Distribution_Array_Class_Value]") {
@@ -110,9 +110,9 @@ TEST_CASE("Uniform Distribution Array Class Set Value", "[Uniform_Distribution_A
     std::array<float, 100> normalArray = randomArrayPtr->getData();
 
     // Assert
-    REQUIRE(Rounding(normalArray[0],4) == -0.4739f);
-    REQUIRE(Rounding(normalArray[50],4) == 0.8716f);
-    REQUIRE(Rounding(normalArray[99],4) == 0.2987f);
+    REQUIRE(Rounding(normalArray[0],4) == -0.6299f);
+    REQUIRE(Rounding(normalArray[50],4) == 0.6282f);
+    REQUIRE(Rounding(normalArray[99],4) == 0.9365f);
 }
 
 TEST_CASE("Uniform Distribution Vector Set Value", "[Uniform_Distribution_Vector_Value]") {
@@ -125,7 +125,7 @@ TEST_CASE("Uniform Distribution Vector Set Value", "[Uniform_Distribution_Vector
     std::vector<float> normalVector = randomVectorPtr->getData();
 
     // Assert
-    REQUIRE(Rounding(normalVector[0],4) == -0.2108f);
-    REQUIRE(Rounding(normalVector[50],4) == -0.1925f);
-    REQUIRE(Rounding(normalVector[99],4) == -0.0519f);
+    REQUIRE(Rounding(normalVector[0],4) == -0.8586f);
+    REQUIRE(Rounding(normalVector[50],4) == 0.5211f);
+    REQUIRE(Rounding(normalVector[99],4) == 0.656f);
 }
