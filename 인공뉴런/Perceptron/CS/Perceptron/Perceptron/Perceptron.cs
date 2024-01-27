@@ -1,6 +1,6 @@
 ﻿namespace Perceptron;
 
-public interface IPerception
+public interface IPerceptron
 {
     public float Bias { get; set; }
     public float LearningRate { get; }
@@ -8,7 +8,7 @@ public interface IPerception
     public int Random_state { get; }
 }
 
-public class Perceptron : IPerception
+public class Perceptron : IPerceptron
 {
     public float Bias { get; set; }
     public float LearningRate { get; private set; }
@@ -70,7 +70,7 @@ public class Perceptron : IPerception
     }
 }
 
-public class Perceptron_Array : IPerception
+public class Perceptron_Array : IPerceptron
 {
     public float Bias { get; set; }
     public float LearningRate { get; private set; }
@@ -130,7 +130,7 @@ public class Perceptron_Array : IPerception
         Weight = input_data[0].Select(_ => (float)rgen.NextDouble()).ToArray();
     }
 }
-public class Perceptron_Array2D : IPerception
+public class Perceptron_Array2D : IPerceptron
 {
     public float Bias { get; set; }
     public float LearningRate { get; private set; }
@@ -199,7 +199,7 @@ public class Perceptron_Array2D : IPerception
     }
 }
 
-public interface IPerception_Double
+public interface IPerceptron_Double
 {
     public double Bias { get; set; }
     public double LearningRate { get; }
@@ -207,7 +207,7 @@ public interface IPerception_Double
     public int Random_state { get; }
 }
 
-public class Perceptron_Double : IPerception_Double
+public class Perceptron_Double : IPerceptron_Double
 {
     public double Bias { get; set; }
     public double LearningRate { get; private set; }
@@ -269,7 +269,7 @@ public class Perceptron_Double : IPerception_Double
     }
 }
 
-public class Perceptron_Array_Double : IPerception_Double
+public class Perceptron_Array_Double : IPerceptron_Double
 {
     public double Bias { get; set; }
     public double LearningRate { get; private set; }
@@ -329,7 +329,7 @@ public class Perceptron_Array_Double : IPerception_Double
         Weight = input_data[0].Select(_ => rgen.NextDouble()).ToArray();
     }
 }
-public class Perceptron_Array2D_Double : IPerception_Double
+public class Perceptron_Array2D_Double : IPerceptron_Double
 {
     public double Bias { get; set; }
     public double LearningRate { get; private set; }
