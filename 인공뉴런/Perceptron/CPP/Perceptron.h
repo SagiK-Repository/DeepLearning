@@ -50,7 +50,7 @@ public :
                 error += int(delta != 0.0);
             }
             errors.push_back(error);
-            std::cout << "-----epoch (" << e << "/" << epoch << ")-------- error:" << error << "===" << weight[0] << " , " << weight[1] << std::endl;
+            std::cout << "-----epoch (" << e << "/" << epoch << ")-------- error:" << error << std::endl;
         }
     }
 
