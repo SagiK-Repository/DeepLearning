@@ -37,3 +37,33 @@ TEST_CASE("Perceptron_Vector", "[Perceptron_Vector]") {
     myVector = { 5.0, 4 };
     REQUIRE(perceptronvector->Predict(myVector) == 1);
 }
+
+TEST_CASE("Perceptron_Array", "[Perceptron_Array]") {
+    // Arrange
+    std::string filename = "data.csv";
+    std::array<std::array<float, 2>, 100> input_data = processCSV_array<100>(filename);
+    IRandomeArray<2>* randomArrayPtr = new Normal_Distribution_Array_Class<2>(1);
+    IPerceptron_Array<100, 10, 2>* perceptronvector = new Perceptron_Array<100, 10, 2>(randomArrayPtr, 0.1, 10);
+    std::array<float, 100> result_data;
+    for (int i = 0; i < input_data.size(); i++)
+        result_data[i] = ((i >= 50) ? 1 : 0);
+
+    // Act
+    perceptronvector->fit(input_data, result_data);
+
+    // Assert
+    std::array<float, 2> myArray = { 4.5, 1 };
+    REQUIRE(perceptronvector->Predict(myArray) == 0);
+    myArray = { 5.0, 2 };
+    REQUIRE(perceptronvector->Predict(myArray) == 0);
+    myArray = { 6.0, 2 };
+    REQUIRE(perceptronvector->Predict(myArray) == 0);
+    myArray = { 7.0, 2 };
+    REQUIRE(perceptronvector->Predict(myArray) == 0);
+    myArray = { 7.0, 5 };
+    REQUIRE(perceptronvector->Predict(myArray) == 1);
+    myArray = { 7.0, 6 };
+    REQUIRE(perceptronvector->Predict(myArray) == 1);
+    myArray = { 5.0, 4 };
+    REQUIRE(perceptronvector->Predict(myArray) == 1);
+}
