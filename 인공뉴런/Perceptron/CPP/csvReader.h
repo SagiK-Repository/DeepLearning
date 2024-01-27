@@ -31,7 +31,7 @@ bool IsOpenFile(std::ifstream& file) {
     if (file.is_open())
         return true;
 
-    std::cout << "íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤." << std::endl;
+    std::cout << "ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù." << std::endl;
     return false;
 }
 
@@ -80,7 +80,7 @@ std::vector<float> get_row_vector(std::istringstream& iss, int first_column, int
     return row;
 }
 
-// CSV íŒŒì¼ì„ ì½ì–´ì„œ ë°ì´í„°ë¥¼ ì²˜ë¦¬í•˜ëŠ” í•¨ìˆ˜
+// CSV ÆÄÀÏÀ» ÀĞ¾î¼­ µ¥ÀÌÅÍ¸¦ Ã³¸®ÇÏ´Â ÇÔ¼ö
 template <int N>
 std::array<std::array<float, 2>, N> processCSV_array(const std::string& filename, int first_column, int second_column) {
     std::array<std::array<float, 2>, N> result;

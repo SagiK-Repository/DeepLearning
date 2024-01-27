@@ -1,4 +1,4 @@
-//     set     :      cd '/workspace/ì¸ê³µë‰´ëŸ°/Perceptron/CPP'
+//     set     :      cd '/workspace/ÀÎ°ø´º·±/Perceptron/CPP'
 //   build     :      g++ ./Perceptron.cpp -o Perceptron_cpp
 //     run     :      ./Perceptron_cpp
 
@@ -22,7 +22,7 @@ int main() {
     // =========== Vector =================
     std::cout << "= Vector =" << std::endl;
     std::vector<std::vector<float>> matrix = processCSV_vector(filename);
-    matrix.erase(matrix.begin()); // ì²« ë²ˆ ë°ì´í„°ëŠ” x
+    matrix.erase(matrix.begin()); // Ã¹ ¹ø µ¥ÀÌÅÍ´Â x
 
 
     // =========== Array ==================
@@ -30,7 +30,7 @@ int main() {
     std::array<std::array<float, 2>, 101> result = processCSV_array<101>(filename);
 
     std::array<std::array<float, 2>, 100> newResult;
-    std::copy(result.begin() + 1, result.end(), newResult.begin()); // ì²« ë²ˆ ë°ì´í„°ëŠ” x
+    std::copy(result.begin() + 1, result.end(), newResult.begin()); // Ã¹ ¹ø µ¥ÀÌÅÍ´Â x
 
     std::array<float, 100> normalArray = Normal_Distribution_Array<100>(seed);
 

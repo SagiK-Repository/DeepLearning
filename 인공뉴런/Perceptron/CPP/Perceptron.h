@@ -34,7 +34,7 @@ public :
 
     void Initialize(std::vector<std::vector<float>> input_data) override {
         bias = 0.0f;
-        randomVectorPtr->size = input_data[0].size(); // í–‰ input_data.size(), ì—´ input_data[0].size()
+        randomVectorPtr->size = input_data[0].size(); // Çà input_data.size(), ¿­ input_data[0].size()
         weight = randomVectorPtr->getData();
     }
 
