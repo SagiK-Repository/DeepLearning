@@ -69,3 +69,132 @@ public class Perceptron : IPerception
         Weight = input_data[0].Select(_ => (float)rgen.NextDouble()).ToList();
     }
 }
+
+public class Perceptron_Array : IPerception
+{
+    public float Bias { get; set; }
+    public float LearningRate { get; private set; }
+    public int Epoch { get; private set; }
+    public int Random_state { get; private set; }
+    public int[] Errors { get; set; }
+    public float[] Weight { get; set; }
+
+    public Perceptron_Array(float learningRate = 0.01f, int epoch = 50, int random_state = 1)
+    {
+        LearningRate = learningRate;
+        Epoch = epoch;
+        Random_state = random_state;
+        Weight = new float[0];
+        Errors = new int[Epoch];
+    }
+
+    public void Initailize(float[][] input_data)
+    {
+        Bias = 0.0f;
+        InitializeWeight(input_data);
+    }
+
+    public void Fit(float[][] input_data, float[] result_data)
+    {
+        Initailize(input_data);
+        for (int e = 0; e < Epoch; e++)
+        {
+            int error = 0;
+            error = Training(input_data, result_data, error);
+            Errors[e] = error;
+            Console.WriteLine($"-----epoch ({e + 1}/{Epoch})-----error:{error}");
+        }
+    }
+
+    private int Training(float[][] input_data, float[] result_data, int error)
+    {
+        var dataAndResult = input_data.Zip(result_data, (data, result) => (data, result));
+        foreach (var (data, result) in dataAndResult)
+        {
+            float delta = LearningRate * (result - Predict(data));
+            Weight = Weight.Select((w, i) => w + data[i] * delta).ToArray();
+            Bias = delta;
+            error += delta != 0.0f ? 1 : 0;
+        }
+
+        return error;
+    }
+
+    public int Predict(float[] input_data) => Caculate_Perceptron(input_data) >= 0.0f ? 1 : 0;
+    public float Caculate_Perceptron(float[] input_data) => Multiplex(input_data) + Bias;
+    public float Multiplex(float[] input_data) => input_data.Zip(Weight, (data, weight) => data * weight).Sum();
+
+    public void InitializeWeight(float[][] input_data)
+    {
+        Random rgen = new Random(Random_state);
+        Weight = input_data[0].Select(_ => (float)rgen.NextDouble()).ToArray();
+    }
+}
+public class Perceptron_Array2D : IPerception
+{
+    public float Bias { get; set; }
+    public float LearningRate { get; private set; }
+    public int Epoch { get; private set; }
+    public int Random_state { get; private set; }
+    public int[] Errors { get; set; }
+    public float[] Weight { get; set; }
+
+    public Perceptron_Array2D(float learningRate = 0.01f, int epoch = 50, int random_state = 1)
+    {
+        LearningRate = learningRate;
+        Epoch = epoch;
+        Random_state = random_state;
+        Weight = new float[0];
+        Errors = new int[Epoch];
+    }
+
+    public void Initailize(float[,] input_data)
+    {
+        Bias = 0.0f;
+        InitializeWeight(input_data);
+    }
+
+    public void Fit(float[,] input_data, float[] result_data)
+    {
+        Initailize(input_data);
+        for (int e = 0; e < Epoch; e++)
+        {
+            int error = 0;
+            error = Training(input_data, result_data, error);
+            Errors[e] = error;
+            Console.WriteLine($"-----epoch ({e + 1}/{Epoch})-----error:{error}");
+        }
+    }
+
+    private int Training(float[,] input_data, float[] result_data, int error)
+    {
+        for (int i = 0; i < input_data.GetLength(0); i++)
+        {
+            float[] data = new float[input_data.GetLength(1)];
+            for (int j = 0; j < input_data.GetLength(1); j++)
+                data[j] = input_data[i, j];
+
+            float result = result_data[i];
+            float delta = LearningRate * (result - Predict(data));
+            Weight = Weight.Select((w, i) => w + data[i] * delta).ToArray();
+            Bias = delta;
+            error += delta != 0.0f ? 1 : 0;
+        }
+
+        return error;
+    }
+
+    public int Predict(float[] input_data) => Caculate_Perceptron(input_data) >= 0.0f ? 1 : 0;
+    public float Caculate_Perceptron(float[] input_data) => Multiplex(input_data) + Bias;
+    public float Multiplex(float[] input_data) => input_data.Zip(Weight, (data, weight) => data * weight).Sum();
+
+    public void InitializeWeight(float[,] input_data)
+    {
+        Random rgen = new Random(Random_state);
+        Weight = new float[input_data.GetLength(1)];
+        for (int i = 0; i < Weight.Length; i++)
+        {
+            Weight[i] = (float)rgen.NextDouble();
+        }
+    }
+}
