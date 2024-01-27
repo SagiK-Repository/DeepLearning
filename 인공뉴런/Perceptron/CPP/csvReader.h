@@ -31,14 +31,13 @@ bool IsOpenFile(std::ifstream& file) {
     if (file.is_open())
         return true;
 
-    std::cout << "파일을 열 수 없습니다." << std::endl;
+    std::cout << "can't csv open file" << std::endl;
     return false;
 }
 
 std::vector<std::vector<float>> processCSV_vector(const std::string& filename, int first_column, int second_column) {
-    
     std::ifstream file(filename);
-    if (IsOpenFile(file) == false)
+     if (IsOpenFile(file) == false)
         return {};
 
     std::vector<std::vector<float>> matrix = get_vector(filename, first_column, second_column);
@@ -80,10 +79,10 @@ std::vector<float> get_row_vector(std::istringstream& iss, int first_column, int
     return row;
 }
 
-// CSV 파일을 읽어서 데이터를 처리하는 함수
+// CSV ?�일???�어???�이?��? 처리?�는 ?�수
 template <int N>
 std::array<std::array<float, 2>, N> processCSV_array(const std::string& filename, int first_column, int second_column) {
-    std::array<std::array<float, 2>, N> result;
+    std::array<std::array<float, 2>, N> result{};
 
     std::ifstream file(filename);
     if (IsOpenFile(file) == false)

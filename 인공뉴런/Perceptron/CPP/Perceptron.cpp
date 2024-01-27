@@ -15,24 +15,24 @@
 
 // Main
 int main() {
-    // Data Loading
-    std::string filename = "data.csv";
-    int seed = 1;
+    // // Data Loading
+    // std::string filename = "data.csv";
+    // int seed = 1;
+    // 
+    // // =========== Vector =================
+    // std::cout << "= Vector =" << std::endl;
+    // std::vector<std::vector<float>> matrix = processCSV_vector(filename);
+    // matrix.erase(matrix.begin()); // 첫 번 데이터는 x
+    // 
+    // 
+    // // =========== Array ==================
+    // std::cout << "= Array =" << std::endl;
+    // std::array<std::array<float, 2>, 101> result = processCSV_array<101>(filename);
+    // 
+    // std::array<std::array<float, 2>, 100> newResult;
+    // std::copy(result.begin() + 1, result.end(), newResult.begin()); // 첫 번 데이터는 x
 
-    // =========== Vector =================
-    std::cout << "= Vector =" << std::endl;
-    std::vector<std::vector<float>> matrix = processCSV_vector(filename);
-    matrix.erase(matrix.begin()); // 첫 번 데이터는 x
-
-
-    // =========== Array ==================
-    std::cout << "= Array =" << std::endl;
-    std::array<std::array<float, 2>, 101> result = processCSV_array<101>(filename);
-
-    std::array<std::array<float, 2>, 100> newResult;
-    std::copy(result.begin() + 1, result.end(), newResult.begin()); // 첫 번 데이터는 x
-
-    std::array<float, 100> normalArray = Normal_Distribution_Array<100>(seed);
+    // std::array<float, 100> normalArray = Normal_Distribution_Array<100>(seed);
 
 
     // Data Loading Test

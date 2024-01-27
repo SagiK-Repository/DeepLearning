@@ -18,7 +18,7 @@ public:
 // Perceptron
 class Perceptron_Vector : public IPerceptron_Vector {
 private :
-    int eta;
+    float eta;
     int epoch;
     int random_state;
     float bias;
@@ -28,13 +28,13 @@ private :
 public :
     std::vector<int> errors;
 
-    Perceptron_Vector(IRandomeVector* randomVectorPtr, int eta = 0.01, int epoch = 50, int random_state = 1)
+    Perceptron_Vector(IRandomeVector* randomVectorPtr, float eta = 0.01, int epoch = 50, int random_state = 1)
      : eta(eta), epoch(epoch), random_state(random_state), randomVectorPtr(randomVectorPtr) {
     }
 
     void Initialize(std::vector<std::vector<float>> input_data) override {
         bias = 0.0f;
-        randomVectorPtr->size = input_data[0].size(); // 행 input_data.size(), 열 input_data[0].size()
+        randomVectorPtr->size = input_data[0].size(); // ??input_data.size(), ??input_data[0].size()
         weight = randomVectorPtr->getData();
     }
 
@@ -49,8 +49,8 @@ public :
                 bias += delta;
                 error += int(delta != 0.0);
             }
-            errors[e] = error;
-            std::cout << "-----epoch (" << e << "/" << epoch << ")-------- error:" << error << std::endl;
+            errors.push_back(error);
+            std::cout << "-----epoch (" << e << "/" << epoch << ")-------- error:" << error << "===" << weight[0] << " , " << weight[1] << std::endl;
         }
     }
 
@@ -73,7 +73,7 @@ public :
 template <int N, int Epoch, int Length>
 class Perceptron_Array : public IPerceptron_Array<N, Epoch, Length> {
 private :
-    int eta;
+    float eta;
     int random_state;
     float bias;
     std::array<float, Length> weight;
@@ -82,7 +82,7 @@ private :
 public :
     std::array<int, Epoch> errors;
 
-    Perceptron_Array(IRandomeArray<N>* randomArrayPtr, int eta = 0.01, int random_state = 1)
+    Perceptron_Array(IRandomeArray<N>* randomArrayPtr, float eta = 0.01, int random_state = 1)
      : eta(eta), random_state(random_state), randomArrayPtr(randomArrayPtr) {
     }
 

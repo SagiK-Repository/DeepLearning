@@ -5,7 +5,7 @@
 #include "csvReader.h"
 
 #define CATCH_CONFIG_MAIN
-#include "/workspace/CPP Unit Test/catch.hpp"
+#include "../../../CPP Unit Test/catch.hpp"
 
 TEST_CASE("Convert string to float", "[ConvertToFloat]") {
     REQUIRE(ConvertToFloat("0") == 0.0f);

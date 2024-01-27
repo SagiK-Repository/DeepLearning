@@ -3,7 +3,7 @@
 // ./getData_Test
 
 #define CATCH_CONFIG_MAIN
-#include "/workspace/CPP Unit Test/catch.hpp"
+#include "../../../CPP Unit Test/catch.hpp"
 
 #include "getData.h"
 
