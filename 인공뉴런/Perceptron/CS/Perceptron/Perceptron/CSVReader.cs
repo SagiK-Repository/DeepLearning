@@ -2,9 +2,21 @@
 
 public static class CSVReader
 {
+    public static bool IsExistFile(string filePath)
+    {
+        if (File.Exists(filePath) == false)
+        {
+            Console.WriteLine("Not Exist CSV File");
+            return false;
+        }
+        return true;
+    }
     public static string[][] Load(string filePath)
     {
         List<string[]> dataArray = new List<string[]>();
+
+        if (IsExistFile(filePath) == false)
+            throw new FileNotFoundException(filePath + " is Not Exist");
 
         using (StreamReader sr = new StreamReader(filePath))
             while (!sr.EndOfStream)
@@ -20,21 +32,20 @@ public static class CSVReader
 
     public static string[,] Array2DLoad(string filePath)
     {
-        string[][] dataArray = Load(filePath);
+        string[] lines = File.ReadAllLines(filePath);
+        int numRows = lines.Length;
+        int numCols = lines[0].Split(',').Length;
 
-        int numRows = dataArray.Length;
-        int numCols = dataArray[0].Length;
-
-        string[,] data2DArray = new string[numRows, numCols];
+        string[,] arrayData = new string[numRows, numCols];
 
         for (int i = 0; i < numRows; i++)
         {
+            string[] rowData = lines[i].Split(',');
+
             for (int j = 0; j < numCols; j++)
-            {
-                data2DArray[i, j] = dataArray[i][j];
-            }
+                arrayData[i, j] = rowData[j];
         }
 
-        return data2DArray;
+        return arrayData;
     }
 }
