@@ -1,4 +1,4 @@
-// cd '/workspace/ÀÎ°ø´º·±/Perceptron/CPP'
+// cd '/workspace/ì¸ê³µë‰´ëŸ°/Perceptron/CPP'
 // g++ -std=c++11 -o getData_Test getData_Test.cpp
 // ./getData_Test
 

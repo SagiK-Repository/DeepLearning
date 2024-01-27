@@ -1,4 +1,4 @@
-//     set     :      cd '/workspace/�ΰ�����/Perceptron/CPP'
+//     set     :      cd '/workspace/인공뉴런/Perceptron/CPP'
 //   build     :      g++ ./Perceptron.cpp -o Perceptron_cpp
 //     run     :      ./Perceptron_cpp
 
@@ -31,22 +31,6 @@ int main() {
     // 
     // std::array<std::array<float, 2>, 100> newResult;
     // std::copy(result.begin() + 1, result.end(), newResult.begin()); // 첫 번 데이터는 x
-
-    // =========== Vector =================
-    std::cout << "= Vector =" << std::endl;
-    std::vector<std::vector<float>> matrix = processCSV_vector(filename);
-    matrix.erase(matrix.begin()); // ù �� �����ʹ� x
-
-
-    // =========== Array ==================
-    std::cout << "= Array =" << std::endl;
-    std::array<std::array<float, 2>, 101> result = processCSV_array<101>(filename);
-
-    std::array<std::array<float, 2>, 100> newResult;
-    std::copy(result.begin() + 1, result.end(), newResult.begin()); // ù �� �����ʹ� x
-
-    std::array<float, 100> normalArray = Normal_Distribution_Array<100>(seed);
-
 
     // Data Loading Test
     // std::cout << "10th value: " << matrix[99][0] << ", " << matrix[99][1] << std::endl;
