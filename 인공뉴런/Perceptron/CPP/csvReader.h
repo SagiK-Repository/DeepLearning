@@ -79,7 +79,7 @@ std::vector<float> get_row_vector(std::istringstream& iss, int first_column, int
     return row;
 }
 
-// CSV ?Œì¼???½ì–´???°ì´?°ë? ì²˜ë¦¬?˜ëŠ” ?¨ìˆ˜
+// CSV ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ğ¾î¼­ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ Ã³ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 template <int N>
 std::array<std::array<float, 2>, N> processCSV_array(const std::string& filename, int first_column, int second_column) {
     std::array<std::array<float, 2>, N> result{};
