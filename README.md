@@ -32,3 +32,6 @@ nvidia-docker run -it -p 18081:8080 -d juhyung1021/nvidia_cuda_cpp_vscode_docker
 ---
 
 <br>
+
+
+### 인공뉴런 Perceptron 기본 (https://github.com/SagiK-Repository/DeepLearning/issues/2)
